@@ -5,22 +5,15 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# prepend path
+export PATH=/home/schellsn/miniconda3/bin:/home/schellsn/bin:$PATH
+
 alias ll='ls --color=auto -l'
 alias la='ls --color=auto -a'
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
-alias vim='nvim'
-
-export EDITOR=nvim
-
-# Powerline
-if [ -f `which powerline-daemon` ]; then
-  powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  . /usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh
-fi
+export EDITOR=vim
 
 # Ranger
 #alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
@@ -36,7 +29,7 @@ fi
 
 function ranger-cd {
     tempfile="$(mktemp -t tmp.XXXXXX)"
-    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
     test -f "$tempfile" &&
     if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
         cd -- "$(cat "$tempfile")"
