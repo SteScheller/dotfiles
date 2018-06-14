@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Mount NAS via SSH
+
+ping -c 1 -w 3 skynet
+RETVAL=$?
+if [ "$RETVAL" == 0 ] 
+then
+    sshfs -o uid=1000,gid=1000 -C -p 443 stefan@skynet:/media/nas/bilder /home/schellsn/mnt/nas/bilder
+    sshfs -o uid=1000,gid=1000 -C -p 443 stefan@skynet:/media/nas/videos /home/schellsn/mnt/nas/videos
+    sshfs -o uid=1000,gid=1000 -C -p 443 stefan@skynet:/media/nas/musik /home/schellsn/mnt/nas/musik
+    sshfs -o uid=1000,gid=1000 -C -p 443 stefan@skynet:/media/nas/etc /home/schellsn/mnt/nas/etc
+    sshfs -o uid=1000,gid=1000 -C -p 443 stefan@skynet:/media/nas/backup/stefan /home/schellsn/mnt/nas/backup
+fi
+

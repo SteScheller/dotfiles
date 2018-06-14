@@ -6,14 +6,14 @@
 [[ $- != *i* ]] && return
 
 # prepend path
-export PATH=/home/schellsn/miniconda3/bin:/home/schellsn/bin:$PATH
+export PATH=$PATH:/home/schellsn/miniconda3/bin:/home/schellsn/bin
 
 alias ll='ls --color=auto -l'
 alias la='ls --color=auto -a'
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
-export EDITOR=vim
+export EDITOR=nvim
 
 # Ranger
 #alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
@@ -51,4 +51,7 @@ bind 'TAB:menu-complete'
 
 # alias for dotfile handling
 alias config='/usr/bin/git --git-dir=$HOME/vcs/dotfiles/ --work-tree=$HOME'
+
+# mount drives from skynet
+skynet_mount
 
