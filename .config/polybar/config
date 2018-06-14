@@ -19,10 +19,10 @@ alert = ${xrdb:color1:#cc6666}
 
 [bar/top]
 
-monitor = ${env:MONITOR:DP-0}
+monitor = ${env:MONITOR:DP-2}
 
 ; Use the specified monitor as a fallback if the main one is not found.
-monitor-fallback = DP-2
+monitor-fallback = DP-0
 
 ; Require the monitor to be in connected state
 ; XRandR sometimes report my monitor as being disconnected (when in use)

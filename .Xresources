@@ -1,3 +1,5 @@
+! colors
+!------------------------------------------------------------------
 ! special
 *.foreground:   #c5c8c6
 *.background:   #0f1021
@@ -36,10 +38,15 @@
 *.color15:      #ffffff
 
 
+! urxvt
+!------------------------------------------------------------------
 ! transparency setting
 urxvt*transparent: true
 urxvt*shading: 15
 
 ! misc
-URxvt.font: xft:Fira Mono:style=Medium:size=11:antialias=true,xft:Font Awesome:size=11
+URxvt.font: xft:Fira\ Mono:style=Medium:size=11:antialias=true,
+\xft:Fira\ Mono\ for\ Powerline:style=Medium:size=11:antialias=true,\
+xft:Font Awesome:size=11
+URxvt*urlLauncher: /usr/bin/firefox
 URxvt.scrollBar: false
