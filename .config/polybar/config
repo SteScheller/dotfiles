@@ -50,10 +50,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
-font-3 = Font Awesome:pixelsize=10;0
+ font-0 = Fira Mono:pixelsize=11;0
+ font-1 = Font Awesome:pixelsize=11;0
 
 modules-left = i3
 modules-center = mpd
@@ -295,7 +293,7 @@ format-prefix-foreground = ${colors.foreground-alt}
 label =  %date%   %time%
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 ; Available tags:
 ;   <label-volume> (default)
@@ -395,8 +393,8 @@ warn-temperature = 90
 format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 
-label = %temperature%
-label-warn = %temperature%
+label = %temperature-c%
+label-warn = %temperature-c%
 
 format-warn-underline = ${colors.alert}
 

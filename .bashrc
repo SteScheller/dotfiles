@@ -60,5 +60,5 @@ bind 'TAB:menu-complete'
 alias config='/usr/bin/git --git-dir=$HOME/vcs/dotfiles/ --work-tree=$HOME'
 
 # mount drives from skynet
-skynet_mount
+# skynet_mount
 

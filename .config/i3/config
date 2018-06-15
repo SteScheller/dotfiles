@@ -21,10 +21,6 @@ font xft:FiraMono-Regular 9
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
 
-# switch for keyboard layout
-exec "setxkbmap -layout de,us"
-exec "setxkbmap -option grp:alt_shift_toggle"
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -181,18 +177,18 @@ gaps outer 3
 ################################################################################
 
 # network manager systray
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 # -> started by xfce4-session manager
 
 # volume control systray
-exec --no-startup-id pasystray
+# exec --no-startup-id pasystray
 # -> started by xfce4-session manager
 
 # deactivate mouse focus
 focus_follows_mouse no
 
 # compositing
-#exec --no-startup-id compton --config $HOME/.config/compton/config -bc 
+exec --no-startup-id compton --config $HOME/.config/compton/config -bc 
 
 ################################################################################
 # Colors
@@ -273,6 +269,10 @@ for_window [class="speedcrunch"] floating enable border normal
 #        status_command i3status
 #        font xft:FiraMono-Regular 9
 #}
+
+# keyboard layout
+exec --no-startup-id setxkbmap -layout de,us -option grp:alt_shift_toggle
+
 
 exec --no-startup-id /home/schellsn/.screenlayout/doublescreen.sh
 exec --no-startup-id /home/schellsn/.config/i3/launch_polybar.sh
