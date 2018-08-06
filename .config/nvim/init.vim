@@ -47,7 +47,7 @@ nnoremap <C-H> <C-W><C-H>
 "##############################################################################
 " autocommands
 "##############################################################################
-autocmd FileType c,cpp,java,php,python autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd FileType c,cpp,java,php,python,glsl autocmd BufWritePre <buffer> %s/\s\+$//e
 " remove trailing whitespaces in specified files
 
 "##############################################################################
@@ -63,6 +63,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
+Plug 'tikhomirov/vim-glsl'
 
 " on demand loading
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -77,5 +78,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_confirm_extra_conf = 0
 
 colorscheme jellybeans
