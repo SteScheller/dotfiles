@@ -14,7 +14,7 @@ set foldlevel=99
 
 
 if has("syntax")
-    set number
+    set number relativenumber
     set autoindent
     syntax on
     set colorcolumn=80
@@ -81,3 +81,5 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
 
 colorscheme jellybeans
+hi Normal guibg=NONE ctermbg=NONE
+
