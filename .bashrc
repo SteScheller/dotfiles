@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # prepend path
-export PATH=$PATH:/local/schellsn/miniconda3/bin:/local/schellsn/bin
+export PATH="$PATH:/local/schellsn/miniconda3/bin:/local/schellsn/bin:/home/schellsn/pool/miniconda3/bin"
 
 alias ll='ls --color=auto -l'
 alias la='ls --color=auto -a'
