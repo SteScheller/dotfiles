@@ -29,7 +29,7 @@ export EDITOR=nvim
 
 function ranger-cd {
     tempfile="$(mktemp -t tmp.XXXXXX)"
-    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    /local/schellsn/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
     test -f "$tempfile" &&
     if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
         cd -- "$(cat "$tempfile")"

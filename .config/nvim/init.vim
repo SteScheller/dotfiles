@@ -38,6 +38,9 @@ nnoremap <Space> za
 " repeat last macro
 nnoremap <C-Space> @@
 
+" Explore files in current window
+nnoremap <C-E> :Explore<CR>
+
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
