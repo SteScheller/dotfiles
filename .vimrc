@@ -14,7 +14,7 @@ set foldlevel=99
 
 
 if has("syntax")
-    set number relativenumber
+    set number
     set autoindent
     syntax on
     set colorcolumn=80
@@ -38,9 +38,6 @@ nnoremap <Space> za
 " repeat last macro
 nnoremap <C-Space> @@
 
-" Explore files in current window
-nnoremap <C-E> :Explore<CR>
-
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -50,7 +47,7 @@ nnoremap <C-H> <C-W><C-H>
 "##############################################################################
 " autocommands
 "##############################################################################
-autocmd FileType c,cpp,java,php,python,glsl autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd FileType c,cpp,java,php,python autocmd BufWritePre <buffer> %s/\s\+$//e
 " remove trailing whitespaces in specified files
 
 "##############################################################################
@@ -64,9 +61,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Shorthand notation; fetches httpf://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
-Plug 'flazz/vim-colorschemes'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
-Plug 'tikhomirov/vim-glsl'
+" Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 
 " on demand loading
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -80,9 +75,4 @@ call plug#end()
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_confirm_extra_conf = 0
-
-colorscheme jellybeans
-hi Normal guibg=NONE ctermbg=NONE
-
+" let g:ycm_autoclose_preview_window_after_insertion = 1
