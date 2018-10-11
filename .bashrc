@@ -17,14 +17,6 @@ alias vim='nvim'
 
 export EDITOR=nvim
 
-# Powerline
-if [ -f `which powerline-daemon` ]; then
-  powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  . /usr/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
-fi
-
 # Ranger
 #alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 
@@ -51,6 +43,13 @@ function ranger-cd {
 # bind '"\C-o":"ranger-cdC-m"'
 alias cdr="ranger-cd"
 
+# Powerline
+if [ -f `which powerline-daemon` ]; then
+  powerline-daemon -q
+  POWERLINE_BASH_CONTINUATION=1
+  POWERLINE_BASH_SELECT=1
+  . /usr/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
+fi
 
 # Vim key bindings
 set -o vi
