@@ -5,6 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# prepend path
+export PATH="$PATH:/opt/cuda/bin"
+
 alias ll='ls --color=auto -l'
 alias la='ls --color=auto -a'
 alias ls='ls --color=auto'
