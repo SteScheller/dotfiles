@@ -8,6 +8,9 @@
 # prepend path
 export PATH="$PATH:/local/schellsn/miniconda3/bin:/local/schellsn/bin:/home/schellsn/pool/miniconda3/bin"
 
+# choose specific version of gcc in order to make nvcc working
+export PYCUDA_DEFAULT_NVCC_FLAGS="--compiler-bindir /opt/rh/devtoolset-4/root/usr/bin/gcc"
+
 alias ll='ls --color=auto -l'
 alias la='ls --color=auto -a'
 alias ls='ls --color=auto'
