@@ -270,4 +270,6 @@ for_window [class="speedcrunch"] floating enable border normal
 #        font xft:FiraMono-Regular 9
 #}
 
+exec "setxkbmap -option 'grp:alt_shift_toggle' -layout de,us -variant nodeadkeys,"
+
 exec --no-startup-id $HOME/.config/i3/launch_polybar.sh
