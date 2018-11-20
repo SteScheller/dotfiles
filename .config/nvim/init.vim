@@ -12,7 +12,6 @@ set autoread        " automatically reload files changed on disk
 set foldmethod=indent
 set foldlevel=99
 
-
 if has("syntax")
     set number relativenumber
     set autoindent
@@ -50,8 +49,15 @@ nnoremap <C-H> <C-W><C-H>
 "##############################################################################
 " autocommands
 "##############################################################################
-autocmd FileType c,cpp,java,php,python,glsl autocmd BufWritePre <buffer> %s/\s\+$//e
-" remove trailing whitespaces in specified files
+" create autocommand groups such that autocommands are replaced instead of
+" chaines when init.vim is sourced again
+augroup filetype_specific_commands
+    autocmd!
+    autocmd FileType c,cpp,java,php,python,glsl autocmd BufWritePre <buffer> %s/\s\+$//e
+    " remove trailing whitespaces in specified files
+    autocmd BufNewFile,BufRead *.inc set filetype=tex
+    " set LaTex syntax highlighting for inc files
+augroup END
 
 "##############################################################################
 " vim-plug
@@ -82,6 +88,8 @@ let g:airline_powerline_fonts = 1
 
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
+
+let g:tex_flavor='latex'
 
 colorscheme jellybeans
 hi Normal guibg=NONE ctermbg=NONE
