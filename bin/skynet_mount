@@ -8,11 +8,11 @@ then
     RETVAL=$?
     if [ "$RETVAL" == 0 ] 
     then
-        sshfs -o uid=1000,gid=1000 -C -p 443 stefan@5.158.134.10:/media/nas/bilder /home/schellsn/mnt/nas/bilder &> /dev/null
-        sshfs -o uid=1000,gid=1000 -C -p 443 stefan@5.158.134.10:/media/nas/videos /home/schellsn/mnt/nas/videos &> /dev/null
-        sshfs -o uid=1000,gid=1000 -C -p 443 stefan@5.158.134.10:/media/nas/musik /home/schellsn/mnt/nas/musik &> /dev/null
-        sshfs -o uid=1000,gid=1000 -C -p 443 stefan@5.158.134.10:/media/nas/etc /home/schellsn/mnt/nas/etc &> /dev/null
-        sshfs -o uid=1000,gid=1000 -C -p 443 stefan@5.158.134.10:/media/nas/backup/stefan /home/schellsn/mnt/nas/backup &> /dev/null
+        sshfs -o uid=1000,gid=1000 -C -p 443 stefan@5.158.134.10:/media/nas/bilder /local/stefan/mnt/nas/bilder &> /dev/null
+        sshfs -o uid=1000,gid=1000 -C -p 443 stefan@5.158.134.10:/media/nas/videos /local/stefan/mnt/nas/videos &> /dev/null
+        sshfs -o uid=1000,gid=1000 -C -p 443 stefan@5.158.134.10:/media/nas/musik /local/stefan/mnt/nas/musik &> /dev/null
+        sshfs -o uid=1000,gid=1000 -C -p 443 stefan@5.158.134.10:/media/nas/etc /local/stefan/mnt/nas/etc &> /dev/null
+        sshfs -o uid=1000,gid=1000 -C -p 443 stefan@5.158.134.10:/media/nas/backup/stefan /local/stefan/mnt/nas/backup &> /dev/null
         RETVAL=$?
         if [ "$RETVAL" == 0 ] 
         then
