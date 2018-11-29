@@ -1,0 +1,15 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Stefan Scheller
+ 	email = stefan.scheller@visus.uni-stuttgart.de
+[core]
+    editor = nvim
+[diff]
+    tool = meld
+[merge]
+    tool = meld
+[content]
+    editor = nvim
+[push]
+    default = simple
+
