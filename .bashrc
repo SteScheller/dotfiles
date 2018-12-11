@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # prepend path
-export PATH="$PATH:/local/schellsn/miniconda3/bin:/local/schellsn/bin:/home/schellsn/pool/miniconda3/bin:/usr/local/cuda/bin"
+export PATH="$PATH:/local/schellsn/miniconda3/bin:/local/stefan/bin:/home/schellsn/pool/miniconda3/bin:/usr/local/cuda/bin"
 
 # choose specific version of gcc in order to make nvcc working
 export PYCUDA_DEFAULT_NVCC_FLAGS="--compiler-bindir /opt/rh/devtoolset-4/root/usr/bin/gcc"
@@ -32,7 +32,7 @@ export EDITOR=nvim
 
 function ranger-cd {
     tempfile="$(mktemp -t tmp.XXXXXX)"
-    /local/schellsn/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
     test -f "$tempfile" &&
     if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
         cd -- "$(cat "$tempfile")"
