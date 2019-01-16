@@ -6,10 +6,13 @@
 [[ $- != *i* ]] && return
 
 # prepend path
-export PATH="$PATH:/mnt/local/stefan/bin:/usr/local/cuda/bin"
+export PATH="$PATH:/local/stefan/bin:/usr/local/cuda/bin"
+
+#export CUDA_ROOT="/usr/local/cuda"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-10.0/lib64"
 
 # choose specific version of gcc in order to make nvcc working
-export PYCUDA_DEFAULT_NVCC_FLAGS="--compiler-bindir /opt/rh/devtoolset-4/root/usr/bin/gcc"
+#export PYCUDA_DEFAULT_NVCC_FLAGS="--compiler-bindir /usr/lib64/ccache/gcc"
 
 alias ll='ls --color=auto -l'
 alias la='ls --color=auto -a'
