@@ -8,7 +8,7 @@
 # prepend path
 export PATH="$PATH:/local/stefan/bin:/local/stefan/.local/bin:/var/lib/snapd/snap/bin:/usr/local/cuda/bin"
 
-export LD_LIBRARY_PATH="LD_LIBRARY_PATH:/usr/local/cuda/lib64"
+export LD_LIBRARY_PATH="LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/lib"
 
 # choose specific version of gcc in order to make nvcc working
 #export PYCUDA_DEFAULT_NVCC_FLAGS="--compiler-bindir /opt/rh/devtoolset-4/root/usr/bin/gcc"

@@ -2,7 +2,7 @@
 
 # Mount NAS via SSH
 
-if [ ! "$(ls -A /home/schellsn/mnt/nas/musik)" ]
+if [ ! "$(ls -A /local/stefan/mnt/nas/musik)" ]
 then
     ping -c 1 -w 3 5.158.134.10 &> /dev/null
     RETVAL=$?
