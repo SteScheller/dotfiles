@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # prepend path
-export PATH="$PATH:/local/schellsn/bin:/usr/local/cuda/bin"
+export PATH="$PATH:/home/schellsn/bin:/usr/local/cuda/bin"
 
 # choose specific version of gcc in order to make nvcc working
 export PYCUDA_DEFAULT_NVCC_FLAGS="--compiler-bindir /opt/rh/devtoolset-4/root/usr/bin/gcc"
