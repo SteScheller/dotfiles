@@ -14,7 +14,7 @@ set foldlevel=99
 
 
 if has("syntax")
-    set number
+    set number relativenumber
     set autoindent
     syntax on
     set colorcolumn=80
@@ -61,6 +61,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Shorthand notation; fetches httpf://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
+Plug 'flazz/vim-colorschemes'
 " Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 
 " on demand loading
@@ -76,3 +77,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 " let g:ycm_autoclose_preview_window_after_insertion = 1
+colorscheme jellybeans
+hi Normal guibg=NONE ctermbg=NONE
+
