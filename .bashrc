@@ -11,6 +11,7 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 export EDITOR=nvim
+export TERMINAL=gnome-terminal
 
 # Ranger
 #alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
@@ -26,7 +27,7 @@ export EDITOR=nvim
 
 function ranger-cd {
     tempfile="$(mktemp -t tmp.XXXXXX)"
-    /local/schellsn/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
     test -f "$tempfile" &&
     if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
         cd -- "$(cat "$tempfile")"
