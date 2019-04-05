@@ -67,9 +67,6 @@ alias config='/usr/bin/git --git-dir=$HOME/vcs/dotfiles/ --work-tree=$HOME'
 # mount drives from skynet
 # skynet_mount
 
-
-
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/mnt/data/schellsn/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
