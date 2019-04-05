@@ -6,12 +6,12 @@
 [[ $- != *i* ]] && return
 
 # prepend path
-export PATH="$PATH:/local/stefan/bin:/local/stefan/.local/bin:/var/lib/snapd/snap/bin:/usr/local/cuda/bin"
-
+export PATH="$PATH:/home/schellsn/bin:/usr/local/cuda/bin"
 export LD_LIBRARY_PATH="LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/lib"
 
 # choose specific version of gcc in order to make nvcc working
 #export PYCUDA_DEFAULT_NVCC_FLAGS="--compiler-bindir /opt/rh/devtoolset-4/root/usr/bin/gcc"
+#export PYCUDA_DEFAULT_NVCC_FLAGS="-std=c++11"
 
 alias ll='ls --color=auto -l'
 alias la='ls --color=auto -a'
@@ -21,7 +21,7 @@ PS1='\[\u@\h \W\]\$ '
 export EDITOR=nvim
 
 # Ranger
-#alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
+alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 
 # Automatically change the directory in bash after closing ranger
 #
@@ -66,4 +66,22 @@ alias config='/usr/bin/git --git-dir=$HOME/vcs/dotfiles/ --work-tree=$HOME'
 
 # mount drives from skynet
 # skynet_mount
+
+
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/mnt/data/schellsn/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/mnt/data/schellsn/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/mnt/data/schellsn/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/mnt/data/schellsn/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
