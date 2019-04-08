@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # prepend path
-export PATH="$PATH:/local/stefan/bin:/usr/local/cuda/bin"
+export PATH="$PATH:/home/schellsn/bin:/usr/local/cuda/bin"
 
 #export CUDA_ROOT="/usr/local/cuda"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib:/usr/local/cuda/lib64"
@@ -22,7 +22,7 @@ alias la='ls --color=auto -a'
 alias ls='ls --color=auto'
 PS1='\[\u@\h \W\]\$ '
 
-export EDITOR=nvim
+export EDITOR=vim
 
 # Ranger
 #alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
@@ -38,7 +38,7 @@ export EDITOR=nvim
 
 function ranger-cd {
     tempfile="$(mktemp -t tmp.XXXXXX)"
-    /local/schellsn/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
     test -f "$tempfile" &&
     if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
         cd -- "$(cat "$tempfile")"
@@ -55,7 +55,7 @@ if [ -f `which powerline-daemon` ]; then
   powerline-daemon -q
   POWERLINE_BASH_CONTINUATION=1
   POWERLINE_BASH_SELECT=1
-  . /usr/share/powerline/bash/powerline.sh
+  . /usr/share/powerline/bindings/bash/powerline.sh
 fi
 
 # Vim key bindings
@@ -70,4 +70,22 @@ alias config='/usr/bin/git --git-dir=$HOME/vcs/dotfiles/ --work-tree=$HOME'
 
 # mount drives from skynet
 # skynet_mount
+
+
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/mnt/data/schellsn/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/mnt/data/schellsn/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/mnt/data/schellsn/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/mnt/data/schellsn/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
