@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # prepend path
-export PATH="$PATH:/home/schellsn/bin:/usr/local/cuda/bin"
+export PATH="$PATH:/home/schellsn/bin:/usr/local/cuda/bin:/home/schellsn/.local/bin"
 
 #export CUDA_ROOT="/usr/local/cuda"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib:/usr/local/cuda/lib64"
@@ -22,7 +22,7 @@ alias la='ls --color=auto -a'
 alias ls='ls --color=auto'
 PS1='\[\u@\h \W\]\$ '
 
-export EDITOR=vim
+export EDITOR=nvim
 
 # Ranger
 #alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'

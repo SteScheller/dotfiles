@@ -40,6 +40,14 @@ nnoremap <C-Space> @@
 " Explore files in current window
 nnoremap <C-E> :Explore<CR>
 
+" tabs
+nnoremap <C-N> :tabnew<CR>
+nnoremap <C-D> :tabc<CR>
+
+" quick splits
+nnoremap <C-V> <C-W>v
+nnoremap <C-S> <C-W>s
+
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
