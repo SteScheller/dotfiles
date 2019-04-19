@@ -40,11 +40,22 @@ nnoremap <C-Space> @@
 " Explore files in current window
 nnoremap <C-E> :Explore<CR>
 
-"split navigations
+" tabs
+nnoremap <C-N> :tabnew<CR>
+nnoremap <C-D> :tabc<CR>
+
+" quick splits
+nnoremap <C-V> <C-W>v
+nnoremap <C-S> <C-W>s
+
+" split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" reload externally changed files
+nnoremap <F5> :checktime<CR>
 
 "##############################################################################
 " autocommands
@@ -71,7 +82,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 Plug 'tikhomirov/vim-glsl'
 
 " on demand loading
