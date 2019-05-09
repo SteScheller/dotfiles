@@ -24,6 +24,8 @@ font xft:FiraMono-Regular 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+exec_always "setxkbmap -layout us,de -option 'grp:alt_shift_toggle'"
+
 # start a terminal
 bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Shift+Return exec xfce4-terminal -e ranger
