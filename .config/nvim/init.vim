@@ -12,7 +12,6 @@ set autoread        " automatically reload files changed on disk
 set foldmethod=indent
 set foldlevel=99
 
-
 if has("syntax")
     set number relativenumber
     set autoindent
@@ -41,11 +40,22 @@ nnoremap <C-Space> @@
 " Explore files in current window
 nnoremap <C-E> :Explore<CR>
 
-"split navigations
+" tabs
+nnoremap <C-N> :tabnew<CR>
+nnoremap <C-D> :tabc<CR>
+
+" quick splits
+nnoremap <C-V> <C-W>v
+nnoremap <C-S> <C-W>s
+
+" split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" reload externally changed files
+nnoremap <F5> :checktime<CR>
 
 " Apply YCM FixIt
 map <F9> :YcmCompleter FixIt<CR>
@@ -53,8 +63,16 @@ map <F9> :YcmCompleter FixIt<CR>
 "##############################################################################
 " autocommands
 "##############################################################################
-autocmd FileType c,cpp,java,php,python,glsl autocmd BufWritePre <buffer> %s/\s\+$//e
-" remove trailing whitespaces in specified files
+" create autocommand groups such that autocommands are replaced instead of
+" chaines when init.vim is sourced again
+augroup filetype_specific_commands
+    autocmd!
+    "autocmd FileType c,cpp,java,php,python,glsl,tex autocmd BufWritePre <buffer> %s/\s\+$//e
+    autocmd FileType c,cpp,java,php,python,glsl autocmd BufWritePre <buffer> %s/\s\+$//e
+    " remove trailing whitespaces in specified files
+    autocmd BufNewFile,BufRead *.inc set filetype=tex
+    " set LaTex syntax highlighting for inc files
+augroup END
 
 "##############################################################################
 " vim-plug
@@ -68,7 +86,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 Plug 'tikhomirov/vim-glsl'
 
 " on demand loading
@@ -85,6 +103,8 @@ let g:airline_powerline_fonts = 1
 
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
+
+let g:tex_flavor='latex'
 
 colorscheme jellybeans
 hi Normal guibg=NONE ctermbg=NONE
