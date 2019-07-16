@@ -102,6 +102,9 @@ let g:ycm_confirm_extra_conf = 0
 
 let g:tex_flavor='latex'
 
-colorscheme jellybeans
+set background=dark
+"colorscheme jellybeans
+"colorscheme gruvbox
+colorscheme PaperColor
 hi Normal guibg=NONE ctermbg=NONE
 
