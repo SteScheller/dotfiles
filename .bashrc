@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # prepend path
-export PATH="$PATH:/home/schellsn/bin:/usr/local/cuda/bin"
+export PATH="$PATH:/home/schellsn/bin:/usr/local/cuda/bin:/home/schellsn/.local/bin"
 export LD_LIBRARY_PATH="LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/lib"
 
 # choose specific version of gcc in order to make nvcc working
