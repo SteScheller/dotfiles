@@ -70,6 +70,13 @@ augroup filetype_specific_commands
     " set LaTex syntax highlighting for inc files
 augroup END
 
+augroup on_startup
+    autocmd!
+    " start ActivityWatcher
+    autocmd VimEnter * AWStart
+augroup END
+
+
 "##############################################################################
 " vim-plug
 "##############################################################################
@@ -108,6 +115,4 @@ set background=dark
 "colorscheme gruvbox
 colorscheme PaperColor
 hi Normal guibg=NONE ctermbg=NONE
-
-AWStart
 
