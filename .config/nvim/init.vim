@@ -84,6 +84,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 Plug 'tikhomirov/vim-glsl'
+Plug 'ActivityWatch/aw-watcher-vim'
 
 " on demand loading
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -107,4 +108,6 @@ set background=dark
 "colorscheme gruvbox
 colorscheme PaperColor
 hi Normal guibg=NONE ctermbg=NONE
+
+AWStart
 
