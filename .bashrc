@@ -10,6 +10,7 @@ alias la='ls --color=auto -a'
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
+export PATH="$PATH:/home/stefan/.local/bin/"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib/"
 export EDITOR=nvim
 export TERMINAL=gnome-terminal
@@ -57,3 +58,4 @@ bind 'TAB:menu-complete'
 
 # alias for dotfile handling
 alias config='/usr/bin/git --git-dir=$HOME/vcs/dotfiles/ --work-tree=$HOME'
+
