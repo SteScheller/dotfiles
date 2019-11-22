@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ ! "$(ls -A /mnt/home)" ]
+then
+    sshfs -o uid=1000,gid=1000 -C timbila:/home/schellsn /mnt/home
+    RETVAL=$?
+    if [ "$RETVAL" == 0 ] 
+    then
+        echo "mounted home directory..."
+    else
+        echo "could not mount home directory..."
+    fi
+else
+    echo "mounted home directory..."
+fi
+
