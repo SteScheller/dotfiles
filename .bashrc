@@ -9,7 +9,7 @@
 export PATH="$PATH:/home/schellsn/bin:/usr/local/cuda/bin:/home/schellsn/.local/bin"
 
 #export CUDA_ROOT="/usr/local/cuda"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib:/usr/local/cuda/lib64"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib:/usr/local/cuda/lib64:/opt/cuda/targets/x86_64-linux/lib/"
 
 export TMP="/tmp"
 
