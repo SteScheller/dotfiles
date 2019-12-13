@@ -85,7 +85,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 Plug 'tikhomirov/vim-glsl'
-#Plug 'ActivityWatch/aw-watcher-vim'
+" Plug 'ActivityWatch/aw-watcher-vim'
 Plug 'vim-latex/vim-latex'
 
 " on demand loading
