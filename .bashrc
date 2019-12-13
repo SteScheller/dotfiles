@@ -21,7 +21,7 @@ PS1='\[\u@\h \W\]\$ '
 export EDITOR=nvim
 
 # Ranger
-alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
+#alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 
 # Automatically change the directory in bash after closing ranger
 #

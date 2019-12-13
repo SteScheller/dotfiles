@@ -64,7 +64,8 @@ nnoremap <F5> :checktime<CR>
 " chaines when init.vim is sourced again
 augroup filetype_specific_commands
     autocmd!
-    autocmd FileType c,cpp,cuda,java,php,python,glsl autocmd BufWritePre <buffer> %s/\s\+$//e
+    "autocmd FileType c,cpp,java,php,python,glsl,tex autocmd BufWritePre <buffer> %s/\s\+$//e
+    autocmd FileType c,cpp,java,php,python,glsl autocmd BufWritePre <buffer> %s/\s\+$//e
     " remove trailing whitespaces in specified files
     autocmd BufNewFile,BufRead *.inc set filetype=tex
     " set LaTex syntax highlighting for inc files
@@ -84,6 +85,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 Plug 'tikhomirov/vim-glsl'
+#Plug 'ActivityWatch/aw-watcher-vim'
+Plug 'vim-latex/vim-latex'
 
 " on demand loading
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -102,6 +105,9 @@ let g:ycm_confirm_extra_conf = 0
 
 let g:tex_flavor='latex'
 
-colorscheme jellybeans
+set background=dark
+"colorscheme jellybeans
+"colorscheme gruvbox
+colorscheme PaperColor
 hi Normal guibg=NONE ctermbg=NONE
 
