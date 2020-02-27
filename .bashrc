@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # prepend path
-export PATH="$PATH:/home/schellsn/bin:/usr/local/cuda/bin:/home/schellsn/.local/bin"
+export PATH="$PATH:/home/schellsn/bin:/usr/local/cuda/bin:/home/schellsn/.local/bin:/home/schellsn/miniconda3/bin"
 
 #export CUDA_ROOT="/usr/local/cuda"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib:/usr/local/cuda/lib64:/opt/cuda/targets/x86_64-linux/lib/"
@@ -71,21 +71,4 @@ alias config='/usr/bin/git --git-dir=$HOME/vcs/dotfiles/ --work-tree=$HOME'
 # mount drives from skynet
 # skynet_mount
 
-
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/mnt/data/schellsn/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/mnt/data/schellsn/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/mnt/data/schellsn/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/mnt/data/schellsn/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 

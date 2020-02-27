@@ -22,14 +22,14 @@ endif
 "##############################################################################
 " keyboard shortcuts
 "##############################################################################
+" automatically close brackets and place cursor inbetween
 " inoremap ( ()<Esc>i
 " inoremap [ []<Esc>i
 " inoremap { {}<Esc>i
-" automatically close brackets and place cursor inbetween
 
+" automatically close quotation marks and place cursor inbetween
 " inoremap " ""<Esc>i
 " inoremap ' ''<Esc>i
-" automatically close quotation marks and place cursor inbetween
 
 " fold code with space
 nnoremap <Space> za
@@ -44,6 +44,18 @@ nnoremap <C-E> :Explore<CR>
 nnoremap <C-N> :tabnew<CR>
 nnoremap <C-D> :tabc<CR>
 
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
 " quick splits
 nnoremap <C-V> <C-W>v
 nnoremap <C-S> <C-W>s
@@ -53,6 +65,22 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" IDE features from with YCM
+nnoremap <leader>gt :YcmCompleter GoTo<CR>
+nnoremap <leader>gi :YcmCompleter GoToInclude<CR>
+nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <leader>fi :YcmCompleter FixIt<CR>
+nnoremap <leader>rr :YcmCompleter RefactorRename 
+nnoremap <leader>pd :YcmCompleter GetDoc<CR>
+nnoremap <leader>pt :YcmCompleter GetType<CR>
+nnoremap <leader>pp :YcmCompleter GetParent<CR>
+
+
+" jump back
+nnoremap <leader>b <C-O>
 
 " reload externally changed files
 nnoremap <F5> :checktime<CR>
