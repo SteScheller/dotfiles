@@ -42,7 +42,6 @@ nnoremap <C-E> :Explore<CR>
 
 " tabs
 nnoremap <C-N> :tabnew<CR>
-nnoremap <C-D> :tabc<CR>
 
 " Go to tab by number
 noremap <leader>1 1gt
@@ -56,15 +55,20 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 
+" close window
+nnoremap <C-D> :q<CR>
+
 " quick splits
 nnoremap <C-V> <C-W>v
 nnoremap <C-S> <C-W>s
 
 " split navigations
-nnoremap <C-J> <C-W><C-J>
+nnoremap <C-H> <C-W><C-H>
+" nnoremap <C-J> <C-W><C-J>
+" -> this is remapped in autocommand group on_startup to overwrite the mapping
+" from vim-latex
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 " IDE features from with YCM
 nnoremap <leader>gt :YcmCompleter GoTo<CR>
@@ -102,6 +106,8 @@ augroup on_startup
     autocmd!
     " start ActivityWatcher
     autocmd VimEnter * AWStart
+    autocmd VimEnter * unmap <C-J>
+    autocmd VimEnter * nnoremap <C-J> <C-W><C-J> 
 augroup END
 
 
