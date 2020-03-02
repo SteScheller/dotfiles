@@ -22,14 +22,14 @@ endif
 "##############################################################################
 " keyboard shortcuts
 "##############################################################################
+" automatically close brackets and place cursor inbetween
 " inoremap ( ()<Esc>i
 " inoremap [ []<Esc>i
 " inoremap { {}<Esc>i
-" automatically close brackets and place cursor inbetween
 
+" automatically close quotation marks and place cursor inbetween
 " inoremap " ""<Esc>i
 " inoremap ' ''<Esc>i
-" automatically close quotation marks and place cursor inbetween
 
 " fold code with space
 nnoremap <Space> za
@@ -42,17 +42,59 @@ nnoremap <C-E> :Explore<CR>
 
 " tabs
 nnoremap <C-N> :tabnew<CR>
-nnoremap <C-D> :tabc<CR>
+
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
+" close window
+nnoremap <C-D> :q<CR>
 
 " quick splits
 nnoremap <C-V> <C-W>v
 nnoremap <C-S> <C-W>s
 
+" latex-suite maps
+imap <C-B> <Plug>IMAP_JumpBack
+nmap <C-B> <Plug>IMAP_JumpBack
+vmap <C-B> <Plug>IMAP_JumpBack
+imap <C-P> <Plug>IMAP_JumpForward
+nmap <C-P> <Plug>IMAP_JumpForward
+vmap <C-P> <Plug>IMAP_JumpForward
+imap <F6> <Plug>Tex_FastEnvironmentInsert
+nmap <F6> <Plug>Tex_FastEnvironmentInsert
+vmap <F6> <Plug>Tex_FastEnvironmentInsert
+
+
 " split navigations
+nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
+" -> this was previously remapped in autocommand group on_startup to 
+"  overwrite the mapping from vim-latex:
+"    autocmd VimEnter * unmap <C-J>
+"    autocmd VimEnter * nnoremap <C-J> <C-W><C-J> 
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+
+" IDE features from with YCM
+nnoremap <leader>gt :YcmCompleter GoTo<CR>
+nnoremap <leader>gi :YcmCompleter GoToInclude<CR>
+nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <leader>fi :YcmCompleter FixIt<CR>
+nnoremap <leader>rr :YcmCompleter RefactorRename 
+nnoremap <leader>pd :YcmCompleter GetDoc<CR>
+nnoremap <leader>pt :YcmCompleter GetType<CR>
+nnoremap <leader>pp :YcmCompleter GetParent<CR>
 
 " reload externally changed files
 nnoremap <F5> :checktime<CR>
@@ -103,7 +145,17 @@ let g:airline_powerline_fonts = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
 
-let g:tex_flavor='latex'
+let g:Tex_Flavor = 'latex'
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode $*'
+let g:Tex_CompileRule_ps = 'ps2pdf $*'
+let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode $*'
+let g:Tex_ViewRule_dvi = 'cd build && xdvi'
+let g:Tex_ViewRule_ps =	'cd build && ghostview'
+let g:Tex_ViewRule_pdf = 'cd build && zathura'
+"let g:Tex_CompileRule_pdf = 'latexmk -pdf -outdir=build -interaction=nonstopmode -shell-escape $*'
+let g:Tex_UseMakefile = 1
+
 
 set background=dark
 "colorscheme jellybeans
