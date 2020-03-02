@@ -63,18 +63,24 @@ nnoremap <C-V> <C-W>v
 nnoremap <C-S> <C-W>s
 
 " latex-suite maps
-imap <C-;> <Plug>IMAP_JumpBack
-nmap <C-;> <Plug>IMAP_JumpBack
-vmap <C-;> <Plug>IMAP_JumpBack
-imap <C-,> <Plug>IMAP_JumpForward
-nmap <C-,> <Plug>IMAP_JumpForward
-vmap <C-,> <Plug>IMAP_JumpForward
+imap <C-B> <Plug>IMAP_JumpBack
+nmap <C-B> <Plug>IMAP_JumpBack
+vmap <C-B> <Plug>IMAP_JumpBack
+imap <C-P> <Plug>IMAP_JumpForward
+nmap <C-P> <Plug>IMAP_JumpForward
+vmap <C-P> <Plug>IMAP_JumpForward
+imap <F6> <Plug>Tex_FastEnvironmentInsert
+nmap <F6> <Plug>Tex_FastEnvironmentInsert
+vmap <F6> <Plug>Tex_FastEnvironmentInsert
+
 
 " split navigations
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
-" -> this was remapped in autocommand group on_startup to overwrite the mapping
-" from vim-latex
+" -> this was previously remapped in autocommand group on_startup to 
+"  overwrite the mapping from vim-latex:
+"    autocmd VimEnter * unmap <C-J>
+"    autocmd VimEnter * nnoremap <C-J> <C-W><C-J> 
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
@@ -111,8 +117,6 @@ augroup on_startup
     autocmd!
     " start ActivityWatcher
     autocmd VimEnter * AWStart
-"    autocmd VimEnter * unmap <C-J>
-"    autocmd VimEnter * nnoremap <C-J> <C-W><C-J> 
 augroup END
 
 
@@ -148,7 +152,17 @@ let g:airline_powerline_fonts = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
 
-let g:tex_flavor='latex'
+let g:Tex_Flavor = 'latex'
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode $*'
+let g:Tex_CompileRule_ps = 'ps2pdf $*'
+let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode $*'
+let g:Tex_ViewRule_dvi = 'cd build && xdvi'
+let g:Tex_ViewRule_ps =	'cd build && ghostview'
+let g:Tex_ViewRule_pdf = 'cd build && zathura'
+"let g:Tex_CompileRule_pdf = 'latexmk -pdf -outdir=build -interaction=nonstopmode -shell-escape $*'
+let g:Tex_UseMakefile = 1
+
 
 set background=dark
 "colorscheme jellybeans
