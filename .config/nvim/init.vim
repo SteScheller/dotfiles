@@ -62,10 +62,18 @@ nnoremap <C-D> :q<CR>
 nnoremap <C-V> <C-W>v
 nnoremap <C-S> <C-W>s
 
+" latex-suite maps
+imap <C-;> <Plug>IMAP_JumpBack
+nmap <C-;> <Plug>IMAP_JumpBack
+vmap <C-;> <Plug>IMAP_JumpBack
+imap <C-,> <Plug>IMAP_JumpForward
+nmap <C-,> <Plug>IMAP_JumpForward
+vmap <C-,> <Plug>IMAP_JumpForward
+
 " split navigations
 nnoremap <C-H> <C-W><C-H>
-" nnoremap <C-J> <C-W><C-J>
-" -> this is remapped in autocommand group on_startup to overwrite the mapping
+nnoremap <C-J> <C-W><C-J>
+" -> this was remapped in autocommand group on_startup to overwrite the mapping
 " from vim-latex
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -82,12 +90,9 @@ nnoremap <leader>pd :YcmCompleter GetDoc<CR>
 nnoremap <leader>pt :YcmCompleter GetType<CR>
 nnoremap <leader>pp :YcmCompleter GetParent<CR>
 
-
-" jump back
-nnoremap <leader>b <C-O>
-
 " reload externally changed files
 nnoremap <F5> :checktime<CR>
+
 "##############################################################################
 " autocommands
 "##############################################################################
@@ -106,8 +111,8 @@ augroup on_startup
     autocmd!
     " start ActivityWatcher
     autocmd VimEnter * AWStart
-    autocmd VimEnter * unmap <C-J>
-    autocmd VimEnter * nnoremap <C-J> <C-W><C-J> 
+"    autocmd VimEnter * unmap <C-J>
+"    autocmd VimEnter * nnoremap <C-J> <C-W><C-J> 
 augroup END
 
 
