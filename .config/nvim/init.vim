@@ -43,6 +43,9 @@ nnoremap <C-E> :Explore<CR>
 " tabs
 nnoremap <C-N> :tabnew<CR>
 
+" visual block mode
+nnoremap Y <C-V>
+
 " Go to tab by number
 noremap <leader>1 1gt
 noremap <leader>2 2gt
@@ -95,6 +98,9 @@ nnoremap <leader>rr :YcmCompleter RefactorRename
 nnoremap <leader>pd :YcmCompleter GetDoc<CR>
 nnoremap <leader>pt :YcmCompleter GetType<CR>
 nnoremap <leader>pp :YcmCompleter GetParent<CR>
+
+" Markdown editing
+nnoremap <leader>mb o- [ ] 
 
 " reload externally changed files
 nnoremap <F5> :checktime<CR>
