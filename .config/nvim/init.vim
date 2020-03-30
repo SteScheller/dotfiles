@@ -129,6 +129,8 @@ Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 Plug 'tikhomirov/vim-glsl'
 " Plug 'ActivityWatch/aw-watcher-vim'
 Plug 'vim-latex/vim-latex'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " on demand loading
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -152,10 +154,13 @@ let g:Tex_CompileRule_ps = 'ps2pdf $*'
 let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode $*'
 let g:Tex_ViewRule_dvi = 'cd build && xdvi'
 let g:Tex_ViewRule_ps =	'cd build && ghostview'
-let g:Tex_ViewRule_pdf = 'cd build && zathura'
+"let g:Tex_ViewRule_pdf = 'cd build && zathura'
+let g:Tex_ViewRule_pdf = 'zathura'
 "let g:Tex_CompileRule_pdf = 'latexmk -pdf -outdir=build -interaction=nonstopmode -shell-escape $*'
 let g:Tex_UseMakefile = 1
 
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1
 
 set background=dark
 "colorscheme jellybeans
