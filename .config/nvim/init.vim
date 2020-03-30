@@ -102,6 +102,12 @@ nnoremap <leader>pp :YcmCompleter GetParent<CR>
 " Markdown editing
 nnoremap <leader>mb o- [ ] 
 
+" automatic date/ time insertion
+nnoremap <leader>dz :put =strftime('%T')<CR>
+nnoremap <leader>dd :put =strftime('%F')<CR>
+nnoremap <leader>da :put =strftime('%c')<CR>
+nnoremap <leader>dw :put =strftime('%a, %d %b')<CR>
+
 " reload externally changed files
 nnoremap <F5> :checktime<CR>
 
