@@ -111,6 +111,9 @@ nnoremap <leader>dw :put =strftime('%a, %d %b')<CR>
 " reload externally changed files
 nnoremap <F5> :checktime<CR>
 
+" edit init vim
+nnoremap <F2> :tabnew<CR>:e ~/.config/nvim/init.vim<CR>
+
 "##############################################################################
 " autocommands
 "##############################################################################
