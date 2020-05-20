@@ -35,7 +35,7 @@ endif
 nnoremap <Space> za
 
 " repeat last macro
-nnoremap <C-Space> @@
+nnoremap + @@
 
 " Explore files in current window
 nnoremap <C-E> :Explore<CR>
@@ -121,11 +121,13 @@ nnoremap <F2> :tabnew<CR>:e ~/.config/nvim/init.vim<CR>
 " chaines when init.vim is sourced again
 augroup filetype_specific_commands
     autocmd!
+
+    autocmd BufNewFile,BufRead *.inc set filetype=tex
+    " set LaTex syntax highlighting for inc files
+    "
     "autocmd FileType c,cpp,java,php,python,glsl,tex autocmd BufWritePre <buffer> %s/\s\+$//e
     autocmd FileType c,cpp,java,php,python,glsl autocmd BufWritePre <buffer> %s/\s\+$//e
     " remove trailing whitespaces in specified files
-    autocmd BufNewFile,BufRead *.inc set filetype=tex
-    " set LaTex syntax highlighting for inc files
 augroup END
 
 "##############################################################################
@@ -161,6 +163,8 @@ let g:airline_powerline_fonts = 1
 
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_use_clangd = 1
+let g:ycm_key_invoke_completion = '<C-Space>'
 
 let g:Tex_Flavor = 'latex'
 let g:Tex_DefaultTargetFormat = 'pdf'
