@@ -43,6 +43,9 @@ nnoremap <C-E> :Explore<CR>
 " tabs
 nnoremap <C-N> :tabnew<CR>
 
+" visual block mode
+nnoremap Y <C-V>
+
 " Go to tab by number
 noremap <leader>1 1gt
 noremap <leader>2 2gt
@@ -96,8 +99,20 @@ nnoremap <leader>pd :YcmCompleter GetDoc<CR>
 nnoremap <leader>pt :YcmCompleter GetType<CR>
 nnoremap <leader>pp :YcmCompleter GetParent<CR>
 
+" Markdown editing
+nnoremap <leader>mb o- [ ] 
+
+" automatic date/ time insertion
+nnoremap <leader>dz :put =strftime('%T')<CR>
+nnoremap <leader>dd :put =strftime('%F')<CR>
+nnoremap <leader>da :put =strftime('%c')<CR>
+nnoremap <leader>dw :put =strftime('%a, %d %b')<CR>
+
 " reload externally changed files
 nnoremap <F5> :checktime<CR>
+
+" edit init vim
+nnoremap <F2> :tabnew<CR>:e ~/.config/nvim/init.vim<CR>
 
 "##############################################################################
 " autocommands
@@ -136,6 +151,8 @@ Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 Plug 'tikhomirov/vim-glsl'
 Plug 'ActivityWatch/aw-watcher-vim'
 Plug 'vim-latex/vim-latex'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " on demand loading
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -163,6 +180,8 @@ let g:Tex_ViewRule_pdf = 'cd build && zathura'
 "let g:Tex_CompileRule_pdf = 'latexmk -pdf -outdir=build -interaction=nonstopmode -shell-escape $*'
 let g:Tex_UseMakefile = 1
 
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1
 
 set background=dark
 "colorscheme jellybeans
