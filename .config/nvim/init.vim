@@ -37,6 +37,13 @@ nnoremap <Space> za
 " repeat last macro
 nnoremap + @@
 
+" convenient copying and pasting with PRIMARY and CLIPBOARD
+noremap <Leader>yy "+y
+noremap <Leader>yp "+p
+noremap <Leader>yY "*y
+noremap <Leader>yP "*p
+
+
 " Explore files in current window
 nnoremap <C-E> :Explore<CR>
 
