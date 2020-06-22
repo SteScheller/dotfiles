@@ -1,0 +1,21 @@
+{
+    "vim.neovimPath": "/usr/bin/nvim",
+    "vim.enableNeovim": true,
+    "vim.useSystemClipboard": true,
+    "vim.vimrc.path": "$HOME/.config/nvim/init.vim",
+    "vim.vimrc.enable": true,
+    "vim.statusBarColorControl": true,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f"
+    },
+    "markdown-pdf.displayHeaderFooter": false,
+    "workbench.colorTheme": "Monokai",
+    "editor.wordWrap": "bounded",
+    "editor.insertSpaces": false,
+    "editor.rulers": [
+        80
+    ],
+    "editor.lineNumbers": "relative"
+}
