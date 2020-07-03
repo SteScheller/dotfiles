@@ -12,10 +12,9 @@
     },
     "markdown-pdf.displayHeaderFooter": false,
     "workbench.colorTheme": "Monokai",
-    "editor.wordWrap": "bounded",
     "editor.insertSpaces": false,
-    "editor.rulers": [
-        80
-    ],
-    "editor.lineNumbers": "relative"
+    "editor.rulers": [79],
+    "editor.lineNumbers": "relative",
+    "editor.wordWrapColumn": 120,
+    "editor.wordWrap": "on"
 }
