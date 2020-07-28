@@ -121,13 +121,11 @@ nnoremap <F2> :tabnew<CR>:e ~/.config/nvim/init.vim<CR>
 " chaines when init.vim is sourced again
 augroup filetype_specific_commands
     autocmd!
-
-    autocmd BufNewFile,BufRead *.inc set filetype=tex
-    " set LaTex syntax highlighting for inc files
-
     "autocmd FileType c,cpp,java,php,python,glsl,tex autocmd BufWritePre <buffer> %s/\s\+$//e
     autocmd FileType c,cpp,java,php,python,glsl autocmd BufWritePre <buffer> %s/\s\+$//e
     " remove trailing whitespaces in specified files
+    autocmd BufNewFile,BufRead *.inc set filetype=tex
+    " set LaTex syntax highlighting for inc files
 augroup END
 
 augroup on_startup
