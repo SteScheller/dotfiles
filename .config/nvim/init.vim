@@ -37,6 +37,13 @@ nnoremap <Space> za
 " repeat last macro
 nnoremap + @@
 
+" convenient copying and pasting with PRIMARY and CLIPBOARD
+noremap <Leader>yy "+y
+noremap <Leader>yp "+p
+noremap <Leader>yY "*y
+noremap <Leader>yP "*p
+
+
 " Explore files in current window
 nnoremap <C-E> :Explore<CR>
 
@@ -80,10 +87,10 @@ vmap <F6> <Plug>Tex_FastEnvironmentInsert
 " split navigations
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
-" -> this was previously remapped in autocommand group on_startup to 
+" -> this was previously remapped in autocommand group on_startup to
 "  overwrite the mapping from vim-latex:
 "    autocmd VimEnter * unmap <C-J>
-"    autocmd VimEnter * nnoremap <C-J> <C-W><C-J> 
+"    autocmd VimEnter * nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
@@ -103,10 +110,10 @@ nnoremap <leader>pp :YcmCompleter GetParent<CR>
 nnoremap <leader>mb o- [ ] 
 
 " automatic date/ time insertion
-nnoremap <leader>dz :put =strftime('%T')<CR>
-nnoremap <leader>dd :put =strftime('%F')<CR>
-nnoremap <leader>da :put =strftime('%c')<CR>
-nnoremap <leader>dw :put =strftime('%a, %d %b')<CR>
+nnoremap <leader>dz :put =strftime('%T')<CR>kJ
+nnoremap <leader>dd :put =strftime('%F')<CR>kJ
+nnoremap <leader>da :put =strftime('%c')<CR>kJ
+nnoremap <leader>dw :put =strftime('%a, %d %b')<CR>kJ
 
 " reload externally changed files
 nnoremap <F5> :checktime<CR>
