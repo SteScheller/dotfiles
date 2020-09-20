@@ -22,43 +22,102 @@ endif
 "##############################################################################
 " keyboard shortcuts
 "##############################################################################
+" automatically close brackets and place cursor inbetween
 " inoremap ( ()<Esc>i
 " inoremap [ []<Esc>i
 " inoremap { {}<Esc>i
-" automatically close brackets and place cursor inbetween
 
+" automatically close quotation marks and place cursor inbetween
 " inoremap " ""<Esc>i
 " inoremap ' ''<Esc>i
-" automatically close quotation marks and place cursor inbetween
 
 " fold code with space
 nnoremap <Space> za
 
 " repeat last macro
-nnoremap <C-Space> @@
+nnoremap + @@
+
+" convenient copying and pasting with PRIMARY and CLIPBOARD
+noremap <Leader>yy "+y
+noremap <Leader>yp "+p
+noremap <Leader>yY "*y
+noremap <Leader>yP "*p
+
 
 " Explore files in current window
 nnoremap <C-E> :Explore<CR>
 
 " tabs
 nnoremap <C-N> :tabnew<CR>
-nnoremap <C-D> :tabc<CR>
+
+" visual block mode
+nnoremap Y <C-V>
+
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
 
 " quick splits
 nnoremap <C-V> <C-W>v
 nnoremap <C-S> <C-W>s
 
+" latex-suite maps
+imap <C-B> <Plug>IMAP_JumpBack
+nmap <C-B> <Plug>IMAP_JumpBack
+vmap <C-B> <Plug>IMAP_JumpBack
+imap <C-P> <Plug>IMAP_JumpForward
+nmap <C-P> <Plug>IMAP_JumpForward
+vmap <C-P> <Plug>IMAP_JumpForward
+imap <F6> <Plug>Tex_FastEnvironmentInsert
+nmap <F6> <Plug>Tex_FastEnvironmentInsert
+vmap <F6> <Plug>Tex_FastEnvironmentInsert
+
+
 " split navigations
+nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
+" -> this was previously remapped in autocommand group on_startup to
+"  overwrite the mapping from vim-latex:
+"    autocmd VimEnter * unmap <C-J>
+"    autocmd VimEnter * nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+
+" IDE features from with YCM
+nnoremap <leader>gt :YcmCompleter GoTo<CR>
+nnoremap <leader>gi :YcmCompleter GoToInclude<CR>
+nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <leader>fi :YcmCompleter FixIt<CR>
+nnoremap <leader>rr :YcmCompleter RefactorRename 
+nnoremap <leader>pd :YcmCompleter GetDoc<CR>
+nnoremap <leader>pt :YcmCompleter GetType<CR>
+nnoremap <leader>pp :YcmCompleter GetParent<CR>
+
+" Markdown editing
+nnoremap <leader>mb o- [ ] 
+
+" automatic date/ time insertion
+nnoremap <leader>dz :put =strftime('%T')<CR>kJ
+nnoremap <leader>dd :put =strftime('%F')<CR>kJ
+nnoremap <leader>da :put =strftime('%c')<CR>kJ
+nnoremap <leader>dw :put =strftime('%a, %d %b')<CR>kJ
 
 " reload externally changed files
 nnoremap <F5> :checktime<CR>
 
-" Apply YCM FixIt
-map <F9> :YcmCompleter FixIt<CR>
+" edit init vim
+nnoremap <F2> :tabnew<CR>:e ~/.config/nvim/init.vim<CR>
 
 "##############################################################################
 " autocommands
@@ -88,6 +147,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 Plug 'tikhomirov/vim-glsl'
+Plug 'ActivityWatch/aw-watcher-vim'
+Plug 'vim-latex/vim-latex'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " on demand loading
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -103,9 +166,26 @@ let g:airline_powerline_fonts = 1
 
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_use_clangd = 1
+let g:ycm_key_invoke_completion = '<C-Space>'
 
-let g:tex_flavor='latex'
+let g:Tex_Flavor = 'latex'
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode $*'
+let g:Tex_CompileRule_ps = 'ps2pdf $*'
+let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode $*'
+let g:Tex_ViewRule_dvi = 'cd build && xdvi'
+let g:Tex_ViewRule_ps =	'cd build && ghostview'
+let g:Tex_ViewRule_pdf = 'cd build && zathura'
+"let g:Tex_CompileRule_pdf = 'latexmk -pdf -outdir=build -interaction=nonstopmode -shell-escape $*'
+let g:Tex_UseMakefile = 1
 
-colorscheme jellybeans
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1
+
+set background=dark
+"colorscheme jellybeans
+"colorscheme gruvbox
+colorscheme PaperColor
 hi Normal guibg=NONE ctermbg=NONE
 
