@@ -11,7 +11,8 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 export PATH="$PATH:/home/stefan/.local/bin/"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib/"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib/:/usr/local/lib"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig"
 export EDITOR=nvim
 export TERMINAL=gnome-terminal
 
